@@ -15,9 +15,9 @@ def getimports(dict,binary):
 		for entry in pe.DIRECTORY_ENTRY_IMPORT:
 			for imp in entry.imports:
 				importname = imp.name
-				if importname[-1] == "A":
+				if importname is not None and importname[-1] == "A":
 					importname = importname[:-1]
-				elif importname[-1] == "W":
+				elif importname is not None and importname[-1] == "W":
 					importname = importname[:-1]
 				
 				if importname in dict:
